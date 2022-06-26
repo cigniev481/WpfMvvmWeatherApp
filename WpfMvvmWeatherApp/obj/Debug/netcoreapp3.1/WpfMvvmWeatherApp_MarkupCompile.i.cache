@@ -1,0 +1,20 @@
+﻿WpfMvvmWeatherApp
+1.0.0.0
+
+winexe
+C#
+.cs
+C:\Users\Kamal\Desktop\WeatherApp MVVM\WpfMvvmWeatherApp\obj\Debug\netcoreapp3.1\
+WpfMvvmWeatherApp
+none
+false
+TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
+C:\Users\Kamal\Desktop\WeatherApp MVVM\WpfMvvmWeatherApp\App.xaml
+41481071040
+
+24-17824748
+196-1618884988
+MainWindow.xaml;Views\AddView.xaml;Views\DetailsView.xaml;Views\HomeView.xaml;
+
+False
+

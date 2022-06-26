@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="WpfMvvmWeatherApp.Views.AddView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfMvvmWeatherApp.Views"
+             xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="350" Background="White" FontSize="20">
+    <DockPanel>
+        <TextBlock DockPanel.Dock="Top" TextAlignment="Center">Add new location</TextBlock>
+        <UniformGrid DockPanel.Dock="Bottom" Rows="1">
+            <Button Command="{Binding OkCommand}">OK</Button>
+            <Button Command="{Binding CancelCommand}">Cancel</Button>
+        </UniformGrid>
+        <StackPanel DockPanel.Dock="Top" Margin="10">
+
+            <RadioButton x:Name="NameRadioButton" IsChecked="{Binding FindByName}" Margin="0,20,0,0" VerticalContentAlignment="Center">Find by city name</RadioButton>
+            
+            <TextBlock>City name:</TextBlock>
+            <TextBox x:Name="CityNameTextBox" Text="{Binding CityName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" IsEnabled="{Binding FindByName}"></TextBox>
+            <TextBlock Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=CityNameTextBox}" Foreground="Red" FontSize="12"/>
+
+            <RadioButton IsChecked="{Binding FindByGeolocation}" x:Name="GeoRadioButton" Margin="0,20,0,0" VerticalContentAlignment="Center">Find by geolocation</RadioButton>
+            
+            <TextBlock>Latitude:</TextBlock>
+            <TextBox x:Name="LatitudeTextBox" Text="{Binding Latitude, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" IsEnabled="{Binding FindByGeolocation}"></TextBox>
+            <TextBlock Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=LatitudeTextBox}" Foreground="Red" FontSize="12"/>
+            
+            <TextBlock>Longitude:</TextBlock>
+            <TextBox x:Name="LongitudeTextBox" Text="{Binding Longitude, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" IsEnabled="{Binding FindByGeolocation}"></TextBox>
+            <TextBlock Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=LongitudeTextBox}" Foreground="Red" FontSize="12"/>
+
+        </StackPanel>
+        <m:Map 
+            x:Name="Map" 
+            MouseRightButtonDown="UIElement_OnMouseRightButtonDown" 
+            IsEnabled="{Binding FindByGeolocation}" 
+            Margin="10" 
+            CredentialsProvider="Agb4IZG_nCqXAevqb5vCb6vU_5hvV0mlxo9olIIhr-Ba0g3xx1tW_rZ_MdHDOAgK" 
+            Grid.Row="1" 
+            Grid.Column="0" 
+            Grid.ColumnSpan="2">
+            
+        </m:Map>
+    </DockPanel>
+</UserControl>

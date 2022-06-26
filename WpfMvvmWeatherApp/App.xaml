@@ -1,0 +1,18 @@
+﻿<Application x:Class="WpfMvvmWeatherApp.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:WpfMvvmWeatherApp"
+             xmlns:viewModels="clr-namespace:WpfMvvmWeatherApp.ViewModels"
+             xmlns:views="clr-namespace:WpfMvvmWeatherApp.Views">
+    <Application.Resources>
+        <DataTemplate DataType="{x:Type viewModels:HomeViewModel}">
+            <views:HomeView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:DetailsViewModel}">
+            <views:DetailsView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:AddViewModel}">
+            <views:AddView/>
+        </DataTemplate>
+    </Application.Resources>
+</Application>
